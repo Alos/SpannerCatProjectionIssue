@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: cat-service
+  cloud:
+    gcp:
+      spanner:
+        instance-id: test-instance
+        database: test-database
+
+#Server configuration
+server:
+  shutdown: graceful
+  error:
+    include-message:
+      always
+
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    enable:
+      all: true
+  endpoint:
+    health:
+      enabled: true
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,refresh
