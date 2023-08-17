@@ -19,18 +19,18 @@ import org.springframework.data.annotation.CreatedDate;
 @NoArgsConstructor
 @With
 public class Animal {
-  /** Internal identifier for an artifact. */
+  /** Internal identifier for an cat. */
   @PrimaryKey
   private String id;
-  /** Name used to display this artifact on the UI. */
+  /** Name used to display this cat on the UI. */
   private String displayName;
-  /** When the artifact was imported. */
+  /** When the Cat was imported. */
   @CreatedDate
   private Instant createTime;
-  /** Metadata for the artifact. */
+  /** Metadata for the cat. */
   @Column(spannerType = TypeCode.JSON)
   private CatMetadata metadata;
-  /** List of labels for this artifact. */
+
   @Interleaved
   private List<Flea> fleas;
 }
